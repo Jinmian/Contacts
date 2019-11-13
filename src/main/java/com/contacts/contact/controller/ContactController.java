@@ -3,6 +3,7 @@ package com.contacts.contact.controller;
 import com.contacts.contact.model.ContactModel;
 import com.contacts.contact.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RequestMapping("/contacts")
 public class ContactController {
 
@@ -32,7 +33,7 @@ public class ContactController {
     }
 
     @PostMapping("/add")
-    public ContactModel createContact(@Valid @RequestBody ContactModel contactModel) {
+    public ContactModel createContact(@RequestBody ContactModel contactModel) {
         return contactService.save(contactModel);
     }
 

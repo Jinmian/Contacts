@@ -3,7 +3,6 @@ package com.contacts.contact.controller;
 import com.contacts.contact.model.ContactModel;
 import com.contacts.contact.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
@@ -38,7 +37,7 @@ public class ContactController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ContactModel> update(@PathVariable Integer id, @Valid @RequestBody ContactModel contactModel) {
+    public ResponseEntity<ContactModel> update(@PathVariable Integer id,@RequestBody ContactModel contactModel) {
         if (!contactService.getContactById(id).isPresent()) {
             ResponseEntity.badRequest().build();
         }

@@ -11,8 +11,6 @@ public class ContactModel {
     private int id;
     @Column(name = "name")
     private String name;
-    @Column(name = "lastname")
-    private String lastname;
     @Column(name = "email")
     private String email;
     @Column(name = "number")
@@ -21,9 +19,8 @@ public class ContactModel {
     public ContactModel() {
     }
 
-    public ContactModel(String name, String lastname, String email, String number) {
+    public ContactModel(String name, String email, String number) {
         this.name = name;
-        this.lastname = lastname;
         this.email = email;
         this.number = number;
     }
@@ -45,15 +42,6 @@ public class ContactModel {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
 
     public String getEmail() {
         return email;
@@ -77,7 +65,6 @@ public class ContactModel {
         return "ContactModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", number=" + number +
                 '}';
